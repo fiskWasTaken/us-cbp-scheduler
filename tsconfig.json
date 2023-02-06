@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "commonjs",
+    "lib": ["dom", "es2018"],
+    "moduleResolution": "Node",
+    "declaration": true,
+    "outDir": "./dist"
+  },
+  "include": [
+    "lib/**/*"
+  ],
+  "types": "dist/client.d.ts",
+  "main": "dist/client.js"
+}
