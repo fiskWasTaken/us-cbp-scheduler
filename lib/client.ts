@@ -124,31 +124,31 @@ export class Client {
     private transport: AxiosInstance;
 
     constructor() {
-        this.transport = axios.create({baseURL: 'https://ttp.cbp.dhs.gov'})
+        this.transport = axios.create({baseURL: 'https://ttp.cbp.dhs.gov/schedulerapi'})
     }
 
     locations(req: LocationsRequest): Promise<Location[]> {
-        return this.transport.get("/schedulerapi/locations", {
+        return this.transport.get("/locations", {
             params: req
         }).then(r => r.data)
     }
 
     slotsAsLocations(req: SlotsAsLocationsRequest): Promise<Location[]> {
-        return this.transport.get("/schedulerapi/slots/asLocations", {
+        return this.transport.get("/slots/asLocations", {
             params: req
         }).then(r => r.data)
     }
 
     // free slots only
     slots(req: SlotsRequest): Promise<Slot[]> {
-        return this.transport.get("/schedulerapi/slots", {
+        return this.transport.get("/slots", {
             params: req
         }).then(r => r.data)
     }
 
     // returns all slots with a slightly different format
     locationSlots(locationId: number, req: LocationSlotsRequest): Promise<LocationSlot[]> {
-        return this.transport.get(`/schedulerapi/locations/${locationId}/slots`, {
+        return this.transport.get(`/locations/${locationId}/slots`, {
             params: req
         }).then(r => r.data)
     }
