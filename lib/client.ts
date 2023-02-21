@@ -107,7 +107,7 @@ export interface LocationsRequest {
     temporary: boolean;
     inviteOnly: boolean;
     operational: boolean;
-    serviceName: boolean;
+    serviceName: ServiceTypes;
 }
 
 export interface LocationSlotsRequest {
@@ -124,11 +124,16 @@ export class Client {
     private transport: AxiosInstance;
 
     constructor() {
-        this.transport = axios.create({baseURL: 'https://ttp.cbp.dhs.gov/schedulerapi'})
+        this.transport = axios.create({
+            baseURL: 'https://ttp.cbp.dhs.gov/schedulerapi',
+            headers: {
+                "User-Agent": 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
+            }
+        })
     }
 
     locations(req: LocationsRequest): Promise<Location[]> {
-        return this.transport.get("/locations", {
+        return this.transport.get("/locations/", {
             params: req
         }).then(r => r.data)
     }
