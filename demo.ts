@@ -1,3 +1,7 @@
+// @ts-nocheck
+// for some reason, PhpStorm tsc checks are complaining about this file. I don't know why. For some reason
+// it thinks I haven't configured tsconfig correctly.
+
 import {Client, Location, LocationFilterTypes, ServiceTypes} from "./lib/client";
 
 const cbp = new Client();
