@@ -10,6 +10,4 @@
   "include": [
     "lib/**/*"
   ],
-  "types": "dist/client.d.ts",
-  "main": "dist/client.js"
 }
