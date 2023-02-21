@@ -1,6 +1,7 @@
 import axios, {AxiosInstance, AxiosPromise, AxiosResponse} from "axios";
 
 export type Timestamp = string;
+export type TimestampShort = string;
 
 export enum LocationTypes {
     Land = "LND",
@@ -55,7 +56,7 @@ export interface Location {
     faxAreaCode: string;
     faxCountryCode: string;
     faxExtension: string;
-    effectiveDate: string; // weird format, 2008-10-02T04:00
+    effectiveDate:  TimestampShort
     temporary: boolean;
     inviteOnly: boolean;
     operational: boolean;
@@ -68,7 +69,6 @@ export interface Location {
     remoteInd: boolean;
     services: Service[];
 }
-
 
 export interface SlotsAsLocationsRequest {
     minimum?: number; // idk what this is
@@ -89,8 +89,8 @@ export interface Slot {
     duration: number;
     locationId: number;
     remoteInd: boolean; // idk what this is
-    startTimestamp: string; // weird format
-    endTimestamp: string; // weird format
+    startTimestamp: TimestampShort;
+    endTimestamp: TimestampShort;
 }
 
 export interface LocationSlot {
@@ -99,7 +99,7 @@ export interface LocationSlot {
     pending: number;
     conflicts: number;
     duration: number;
-    timestamp: string; // weird format
+    timestamp: TimestampShort;
     remote: boolean;
 }
 

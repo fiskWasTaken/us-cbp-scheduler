@@ -2,6 +2,10 @@
 
 Bindings for the United States Customs and Border Protection scheduling API for Global Entry, NEXUS, SENTRI and FAST interviews. 
 
-## Why?
-* Because there are usually no slots available at places that matter until people cancel at the last minute.
-* There is a website that is doing pretty much what this client will allow you to do, but it's a paid subscription thing.
+This does not provide Date objects, as timezone information is not always present in the API. If you need this, you can: 
+
+```ts
+new Date(Date.parse(t))
+```
+
+This will work for both timestamp formats used in the API.
